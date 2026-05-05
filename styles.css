@@ -1128,6 +1128,9 @@ opacity:0.8;
 .electrolysis-section {
   font-family: Inter, sans-serif;
   width: 80%;
+  
+
+
 }
 
 /* better scaling */
@@ -1524,4 +1527,135 @@ opacity:0.8;
 .linkedin:hover {
   background: black;
   color: white;
+}
+/*Mobile friendly*/
+/* ============================= */
+/* GLOBAL MOBILE FIXES */
+/* ============================= */
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* HEADER */
+  header {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  /* HERO LAYOUT → STACK */
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  /* SVG → scale nicely */
+  .electrolysis-svg {
+    width: 100%;
+    height: auto;
+  }
+
+  /* SCROLL BUTTON */
+  .scroll-button {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* CUBE IMAGE */
+  #cube_big {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* SOLUTION CARDS */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  /* APPLICATION GRID → 1 COLUMN */
+  .applications {
+    padding: 40px 20px;
+  }
+
+  .applications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* TEAM SECTION */
+  .team-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .team {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .team-card img {
+    width: 100%;
+  }
+
+  /* PARTNER LOGOS */
+  .partners-track {
+    gap: 20px;
+  }
+
+  .partner-card img {
+    height: 30px;
+  }
+
+  /* FOOTER */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
 }
