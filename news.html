@@ -1,115 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<link rel="stylesheet" href="styles.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowVolta | News</title>
-    <link rel="icon" type="image/webp" href="assets/flwv.webp">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="styles.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>FlowVolta | News</title>
+		<link rel="icon" type="image/webp" href="assets/flwv.webp">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			/* Base */
+			.journey {
+			  
+			  padding: 80px 20px;
+			}
+			/* Timeline */
+			.timeline {
+			  display: flex;
+			  flex-direction: column;
+			  gap: 80px;
+			}
 
-<body>
+			.year-block {
+			  display: flex;
+			  justify-content: space-between;
+			  align-items: flex-start;
+			  gap: 50px;
+			}
 
-    <!-- Header -->
-    <header>
-        <a href="index.html" class="logo">
-            <img src="assets/flowvolta_logo.webp" alt="FlowVolta Logo">
-        </a>
+			/* LEFT SIDE */
+			.left {
+			  width: 45%;
+			  position: relative;
+			  padding-left: 30px;
+			}
 
-        <nav>
-			<a href="index.html">Home</a>
-            <!--<a href="technology.html">Technology</a>-->
-            <a href="news.html">News</a>
-			<a href="blog.html">Blog</a>
-			<a href="career.html">Career</a>
-            <a href="about.html">About Us</a>
-            <a href="contact.html" class="contact-btn active">Contact</a>
-        </nav>
-    </header>
+			/* Vertical line */
+			.left::before {
+			  content: "";
+			  position: absolute;
+			  left: 10px;
+			  top: 50px;
+			  bottom: 0;
+			  width: 2px;
+			  background: #d1d5db;
+			}
 
-    <!-- Background -->
-    <div class="background">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
+			/* Year */
+			.year {
+			  font-size: 26px;
+			  font-weight: 600;
+			  color: #27c1e6;
+			  margin-bottom: 20px;
+			}
 
-        <div class="particles">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-        </div>
-    </div>
+			/* Event */
+			.event {
+			  position: relative;
+			  margin-bottom: 40px;
+			}
 
-   
-<section class="hero">
-    <!-- News Section -->
-	
+			/* Dot */
+			.event::before {
+			  content: "";
+			  position: absolute;
+			  left: -22px;
+			  top: 8px;
+			  width: 8px;
+			  height: 8px;
+			  background: #9ca3af;
+			  border-radius: 50%;
+			}
 
-		<section class="section news">
-			<div  class="subtitle">Latest News</div>
+			/* Month pill */
+			.month {
+			  display: inline-block;
+			  background: #27c1e6;;
+			  padding: 6px 14px;
+			  border-radius: 20px;
+			  font-size: 14px;
+			  margin-bottom: 8px;
+			}
+
+			/* Content */
+			.content h4 {
+			  margin: 6px 0;
+			  font-size: 17px;
+			  color: #111827;
+			}
+
+			.content p {
+			  font-size: 14px;
+			  color: #4b5563;
+			  line-height: 1.5;
+			}
+
+			/* RIGHT SIDE */
+			.right {
+			  width: 45%;
+			}
+
+			.right img {
+			  width: 100%;
+			  border-radius: 16px;
+			  display: block;
+			}
+
+			/* STACKED IMAGES */
+			.images-stack {
+			  position: relative;
+			  height: 260px;
+			}
+
+			.images-stack img {
+			  position: absolute;
+			  width: 70%;
+			  border-radius: 14px;
+			  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+			}
+
+			.img-back {
+			  top: 0;
+			  right: 0;
+			}
+
+			.img-mid {
+			  top: 40px;
+			  left: 5%;
+			}
+
+			.img-front {
+			  top: 90px;
+			  right: 10%;
+			}
+			
+			.left.full {
+			  width: 100%;
+			}
+
+			/* Event layout with image */
+			.event.with-image {
+			  display: flex;
+			  align-items: flex-start;
+			  gap: 30px;
+			}
+
+			/* Text */
+			.event-content {			  
+			  flex: 2;        /* give more weight to text */
+			  min-width: 0;   /* prevents overflow issues */
+			}
+
+			.event-image {
+			  flex: 1;        /* image takes less space */
+			  max-width: 180px; /* reduce from 220px */
+			}
 
 
-			<div class="card">
-				<h3>🚀 FlowVolta Launch Update</h3>
-				<p>
-					We are making strong progress on our core technology and expanding
-					our development efforts. Stay tuned for upcoming milestones and announcements.
-				</p>
+			.event-image img {
+			  width: 100%;
+			  border-radius: 12px;
+			  display: block;
+			}
+
+			/* Mobile */
+			@media (max-width: 768px) {
+			  .event.with-image {
+				flex-direction: column;
+			  }
+
+			  .event-image {
+				width: 100%;
+			  }
+			}
+			/* ===================================== */
+			/* ✅ TABLET */
+			/* ===================================== */
+			@media (max-width: 1024px) {
+			  .year-block {
+				gap: 30px;
+			  }
+
+			  .left, .right {
+				width: 48%;
+			  }
+
+			  .images-stack {
+				height: 240px;
+			  }
+			}
+
+			/* ===================================== */
+			/* ✅ MOBILE */
+			/* ===================================== */
+			@media (max-width: 768px) {
+
+			  .title {
+				font-size: 28px;
+			  }
+
+			  .year-block {
+				flex-direction: column;
+				gap: 30px;
+			  }
+
+			  .left {
+				width: 100%;
+				padding-left: 25px;
+			  }
+
+			  .right {
+				width: 100%;
+			  }
+
+			  /* Fix timeline line for mobile */
+			  .left::before {
+				left: 8px;
+			  }
+
+			  .event::before {
+				left: -20px;
+			  }
+
+			  /* Stack images nicely */
+			  .images-stack {
+				height: auto;
+			  }
+
+			  .images-stack img {
+				position: relative;
+				width: 100%;
+				margin-bottom: 15px;
+			  }
+
+			  .img-back,
+			  .img-mid,
+			  .img-front {
+				top: auto;
+				left: auto;
+				right: auto;
+			  }
+			}
+			.event-title {
+			  color: #ffff;
+			} 
+	</style>
+	</head>
+
+	<body>
+		<header>
+			<a href="index.html" class="logo">
+				<img src="assets/flowvolta_logo.webp" alt="flowvolta Logo">
+				<h1></h1>
+			</a>
+
+			<nav>
+				<a href="index.html">Home</a>
+				<!--<a href="technology.html">Technology</a>-->
+				<a href="news.html">News</a>
+				<a href="blog.html">Blog</a>
+				<a href="career.html">Career</a>
+				<a href="about.html">About us</a>
+				<a href="contact.html" class="contact-btn">Contact us</a>
+			</nav>
+		</header>
+
+		<div class="background">
+			<div class="blob blob1"></div>
+			<div class="blob blob2"></div>
+			<div class="blob blob3"></div>
+
+			<div class="particles">
+				<span></span><span></span><span></span><span></span>
+				<span></span><span></span><span></span><span></span>
+			</div>
+		</div>
+			
+		<div class="hero-text">
+		<h1><span>News</span></h1>
+		</div>	  
+		  
+		<section class="journey">
+		  <div class="container">
+			<div class="team-left">
+			  <div class="subtitle">OUR JOURNEY</div>
 			</div>
 
-			<div class="card">
-				<h3>📢 New Partnerships</h3>
-				<p>
-					We are collaborating with industry and research partners to accelerate
-					innovation in electrochemical systems and sustainable technologies.
-				</p>
-			</div>
+			<div class="timeline">
 
-			<div class="card">
-				<h3>🔬 Research & Innovation</h3>
-				<p>
-					Our team continues to push boundaries in multiphysics modelling,
-					design optimization, and system-level innovation.
-				</p>
+			  <!-- 2026 -->
+			  <div class="year-block">
+				<div class="left full">
+
+				  <div class="year">2026</div>
+
+				  <div class="event with-image">
+					<div class="event-content">
+					  <div class="month">March</div>
+					  <h4 class="event-title">Pilot started</h4>
+					  <p>
+						Partnered with Switch2 Offshore to build a pilot for our electrolyzer stack
+						at the Port of Rotterdam.
+					  </p>
+					</div>
+
+					<div class="event-image">
+					  <img src="your-image-1.jpg" alt="Pilot project">
+					</div>
+				  </div>
+
+				</div>
+			  </div>
+
+
+			  <!-- 2025 -->
+			  <div class="year-block">
+				<div class="left full">
+
+				  <div class="year">2025</div>
+
+				  <div class="event with-image">
+					<div class="event-content">
+					  <div class="month">December</div>
+					  <h4>Built 7 prototypes</h4>
+					  <p>
+						Over the course of the year we built several different prototypes to test
+						and improve our design.
+					  </p>
+					</div>
+
+					<div class="event-image">
+					  <img src="your-image-2.jpg" alt="Prototypes">
+					</div>
+				  </div>
+
+				  <div class="event with-image">
+					<div class="event-content">
+					  <div class="month">October</div>
+					  <h4>Filed two more patents</h4>
+					  <p>
+						Filed two more patents to protect our bipolar plateless design
+						and in-situ catalyst redeposition.
+					  </p>
+					</div>
+
+					<div class="event-image">
+					  <img src="your-image-3.jpg" alt="Patents">
+					</div>
+				  </div>
+
+				</div>
+			  </div>
+
 			</div>
+		  </div>
 		</section>
-	
-	
-    <!-- Events Section-->
-    <section class="section events">
-		<div class="subtitle">Events & Updates</div>
 
-        <div class="card">
-            <h3>📅 Conference Participation</h3>
-            <p>
-                We regularly participate in scientific and industry conferences.
-                Meet us to learn more about our work.
-            </p>
-        </div>
+		
 
-        <div class="card">
-            <h3>👥 Team Growth</h3>
-            <p>
-                Our team is expanding as we scale. Keep an eye on this page for
-                new opportunities and updates.
-            </p>
-        </div>
-    </section> 
-	
-</section>
-
-<footer class="footer">
-        <div class="footer-content">
-            <div class="footer-left">
-                © 2025 FlowVolta B.V. All rights reserved.
-            </div>
-            <div class="footer-right">
-                <a href="index.html">Privacy Policy</a>
-                <a href="index.html">Terms of Use</a>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
+		<footer class="footer">
+		  <div class="footer-content">
+			<div class="footer-left">
+			  © 2025 FlowVolta B.V. All rights reserved.
+			</div>
+		   
+			<div class="footer-right">
+			  <a href="index.html">Privacy Policy</a>
+			  <a href="index.html">Terms of Use</a>
+			</div>
+		  </div>
+		</footer>
+	</body>
 </html>

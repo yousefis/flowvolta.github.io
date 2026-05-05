@@ -1186,7 +1186,7 @@ opacity:0.8;
 
 /* better scaling */
 .electrolysis-section svg {
-  width: 160%;
+  width: 100%;
   min-height: 750px;
 }
 
@@ -1524,6 +1524,7 @@ opacity:0.8;
   display: block !important;
   padding: 50px 0px;
 }
+
 /***************************/
 
 .footer-container {
