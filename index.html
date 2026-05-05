@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FlowVolta Home</title>
+  <link rel="icon" type="image/webp" href="assets/flwv.webp">
+</head>
+
+<style>
+.applications {
+  padding: 80px 80px;
+  background: #f8fafc;
+}
+
+.applications-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #2bd4ff;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+}
+
+.app-card-title {
+  color: #27c1e6;
+}
+
+/* GRID */
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+/* CARD */
+.app-card {
+  position: relative;
+}
+
+.app-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+/* ICON */
+.app-icon {
+  position: absolute;
+  top: 140px;
+  left: 20px;
+  background: #0b1a2b;
+  color: #2bd4ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 2px solid #1f2f44;
+}
+
+/* TEXT */
+.app-card h3 {
+  margin-top: 30px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.app-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+</style>
+
+<body>
+
+<header>
+  <a href="index.html" class="logo">
+    <img src="assets/flowvolta_logo.webp" alt="FlowVolta logo" />
+    <h1></h1>
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="technology.html">Technology</a>
+    <a href="news.html">News</a>
+	<a href="blog.html">Blog</a>
+	<a href="career.html">Career</a>
+    <a href="about.html">About us</a>
+    <a href="contact.html" class="contact-btn">Contact us</a>
+  </nav>
+</header>
+
+<div class="background">
+  <div class="blob blob1"></div>
+  <div class="blob blob2"></div>
+  <div class="blob blob3"></div>
+
+  <div class="particles">
+    <span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span>
+  </div>
+</div>
+
+<section class="hero">
+
+  <div class="hero-container">
+
+    <!-- LEFT: subtitle -->
+    <div class="hero-left">
+      <div class="subtitle2">
+        ELECTROLYSIS AS A SYSTEM, NOT JUST A STACK
+      </div>
+    </div>
+
+    <!-- CENTER: main title -->
+    <div class="hero-text">
+      <h1>
+        Electrolysis,&nbsp;redesigned<br>
+        at&nbsp;<span>system&nbsp;level.</span>
+      </h1>
+    </div>
+
+    <!-- RIGHT: description -->
+    <div class="hero-right">
+	<div class="content">
+      <p>
+        FlowVolta is solving the key challenges associated with today’s electrochemical systems and unlock the 
+		full potential of electrochemical production through advanced innovation and scalable solutions.
+      </p>
+    </div>
+	</div>
+
+  </div>
+<section class="electrolysis-section">
+    <svg id="svgRoot" class="electrolysis-svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Electrolysis diagram">
+      <defs>
+        <!-- arrow -->
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="currentColor"/>
+        </marker>
+
+        <!-- subtle glow -->
+        <filter id="softGlow">
+          <feGaussianBlur id="softGlowBlur" stdDeviation="3" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <!-- LEFT INPUTS -->
+      <g class="input">
+        <!-- RENEWABLE POWER -->
+        <g id="gRenewable">
+          <circle id="rpRing" class="node-ring" />
+          <circle id="rpCore" class="node-core" />
+          <circle id="rpGlow" class="node-glow" />
+
+          <!-- icon -->
+          <path id="rpIcon" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" fill="none"></path>
+
+          <text id="rpText1"></text>
+          <text id="rpText2"></text>
+
+          <path id="rpLine" class="flow-line"></path>
+          <circle id="rpParticle" class="flow-particle" r="2" fill="currentColor"></circle>
+        </g>
+
+        <!-- WATER INPUT -->
+        <g id="gWater">
+          <circle id="wRing" class="node-ring" />
+          <circle id="wCore" class="node-core" />
+          <circle id="wGlow" class="node-glow" />
+
+          <path id="wIcon" stroke="currentColor" fill="none" stroke-width="1.5"></path>
+
+          <text id="wText1"></text>
+          <text id="wText2"></text>
+
+          <path id="wLine" class="flow-line"></path>
+          <circle id="wParticle" class="flow-particle delay" r="2" fill="currentColor"></circle>
+        </g>
+      </g>
+
+      <!-- CENTER IMAGE -->
+       <image
+    id="centerImg"
+    href=""
+    x="0"
+    y="0"
+    width="0"
+    height="0"
+    preserveAspectRatio="xMidYMid meet"
+  />
+
+      <!-- RIGHT OUTPUTS -->
+      <g class="output1" id="gHydrogen">
+        <circle id="hRing" class="node-ring" />
+        <circle id="hCore" class="node-core" />
+        <circle id="hGlow" class="node-glow" />
+
+        <text id="hSymbol" text-anchor="middle"></text>
+        <text id="hSub" font-size="7"></text>
+
+        <text id="hText1"></text>
+        <text id="hText2"></text>
+
+        <path id="hLine" class="flow-line"></path>
+
+        <!-- pulse -->
+        <circle id="hPulse" class="pulse-ring"></circle>
+      </g>
+
+      <g class="output2" id="gChem">
+        <circle id="cRing" class="node-ring" />
+        <circle id="cCore" class="node-core" />
+        <circle id="cGlow" class="node-glow" />
+
+        <path id="cIcon" stroke="currentColor" fill="none"></path>
+
+        <text id="cText1"></text>
+        <text id="cText2"></text>
+
+        <path id="cLine" class="flow-line"></path>
+
+        <!-- pulse -->
+        <circle id="cPulse" class="pulse-ring delay"></circle>
+      </g>
+    </svg>
+  </section>
+
+
+  <!-- Scroll button -->
+  <a href="#next-section" class="scroll-wrap">
+    <div class="scroll-button">
+      <span>⌵</span>
+    </div>
+  </a>
+
+</section>
+<!---------------->
+
+<section id="next-section" class="cube-section2">
+	<img id="cube_big" src="assets/cube_big.png" alt="Cube big" style="width: 900px; height: auto;" />
+
+</section>
+<!---------------->
+
+<div class="wrapper">
+  <div class="subtitle">OUR SOLUTION</div>
+
+  <div class="content">
+    FlowVolta simplifies the entire electrochemical system.
+  </div>
+
+  <div class="container">
+
+    <!-- Card 1 -->
+    <div class="card">
+      <div class="icon">
+        <svg width="22" height="22" stroke="#27c1e6" fill="none" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="M11 7v8M7 11h8" />
+        </svg>
+      </div>
+
+      <h3>Lower CAPEX</h3>
+      <p>
+        Up to 50% reduction in non-stack system costs through simplified architecture and smart integration.
+      </p>
+
+      <ul>
+        <li>Simplified system design</li>
+        <li>Reduced component count</li>
+        <li>Lower installation costs</li>
+      </ul>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card">
+      <div class="icon">
+        <svg width="22" height="22" stroke="#27c1e6" fill="none" stroke-width="2">
+          <path d="M3 11h3l2-6 4 12 2-6h3" />
+        </svg>
+      </div>
+
+      <h3>Operational flexibility</h3>
+      <p>
+        Designed for dynamic operation with variable renewable power without compromising performance.
+      </p>
+
+      <ul>
+        <li>0–100% load range</li>
+        <li>Fast start-stop capability</li>
+        <li>Optimized for renewables</li>
+      </ul>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card">
+      <div class="icon">
+        <svg width="22" height="22" stroke="#27c1e6" fill="none" stroke-width="2">
+          <path d="M3 3h16v16H3z" />
+          <path d="M3 9h16M9 3v16" />
+        </svg>
+      </div>
+
+      <h3>Easier deployment</h3>
+      <p>
+        Modular, compact and containerised systems for fast installation and scale-out.
+      </p>
+
+      <ul>
+        <li>Modular architecture</li>
+        <li>Compact footprint</li>
+        <li>Rapid installation</li>
+      </ul>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+      <div class="icon">
+        <svg width="22" height="22" stroke="#27c1e6" fill="none" stroke-width="2">
+          <path d="M12 2l7 3v5c0 5-3.5 9-7 10-3.5-1-7-5-7-10V5l7-3z" />
+        </svg>
+      </div>
+
+      <h3>High reliability</h3>
+      <p>
+        Fewer components, less complexity — built for long lifetime and easier maintenance.
+      </p>
+
+      <ul>
+        <li>Minimal moving parts</li>
+        <li>Robust system design</li>
+        <li>Easy maintenance</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<!--------application-------->
+<section class="applications">
+
+   <div class="subtitle">Built for a wide range of applications</div>
+
+  <div class="applications-grid">
+    
+    <div class="app-card">
+      <img src="assets/application/pic1.png" alt="Green hydrogen" />
+      <div class="app-icon">H₂</div>
+      <h3 class="app-card-title">Green hydrogen</h3>
+      <p>Efficient, scalable and cost-competitive hydrogen for industry and mobility.</p>
+    </div>
+
+    <div class="app-card">
+      <img src="assets/application/pic2.png" alt="Green chemicals" />
+      <div class="app-icon">⚗</div>
+      <h3 class="app-card-title">Green chemicals</h3>
+      <p>Enable sustainable production of e-fuels, ammonia, methanol and more.</p>
+    </div>
+
+    <div class="app-card">
+      <img src="assets/application/pic3.png" alt="Distributed production" />
+      <div class="app-icon">⬢</div>
+      <h3 class="app-card-title">Distributed production</h3>
+      <p>Produce on-site, close to demand, reducing infrastructure and transport.</p>
+    </div>
+
+    <div class="app-card">
+      <img src="assets/application/pic4.png" alt="Energy resilience" />
+      <div class="app-icon">⚡</div>
+      <h3 class="app-card-title">Energy resilience</h3>
+      <p>Strengthen energy independence with flexible, reliable electrolysis systems.</p>
+    </div>
+
+  </div>
+</section>
+<!--------ourteam-------->
+
+
+<section class="ourteam">
+    <div class="team-layout">
+        
+        <!-- LEFT SIDE -->
+        <div class="team-left">
+			<div class="subtitle">OUR TEAM</div>
+
+			<div class="team">
+
+				<div class="team-card">
+					<img src="assets/saeed.jpg">
+					<h3>Saeed Khalafvand</h3>
+					<p>Founder & CEO</p>				
+					
+					<a href="https://www.linkedin.com/in/saeid-khalafvand/" target="_blank" class="icon-link" title="LinkedIn">
+						<svg viewBox="0 0 24 24" width="20" height="20">
+							<path fill="currentColor" d="M19 3A2 2 0 0 1 21 5V19a2 2 0 0 1-2 
+							2H5a2 2 0 0 1-2-2V5a2 2 0 0 
+							1 2-2h14zm-9 14v-7H7v7h3zm-1.5-8.3a1.7 
+							1.7 0 1 0 0-3.4 1.7 1.7 0 0 
+							0 0 3.4zM17 17v-4c0-2.2-1.2-3.3-2.8-3.3-1.3 
+							0-1.8.7-2.1 1.2V10h-3v7h3v-3.5c0-.9.2-1.8 
+							1.3-1.8 1.1 0 1.1 1 1.1 1.9V17h2.5z"/>
+						</svg>
+					</a>
+
+				</div>
+
+				<div class="team-card">
+					<img src="assets/stefano.jpg">
+					<h3>Stefano de Cillis</h3>
+					<p>Founder & CPO</p>
+
+					
+					<a href="https://www.linkedin.com/in/stefano-de-cillis-2a3682145/" target="_blank" class="icon-link" title="LinkedIn">
+						<svg viewBox="0 0 24 24" width="20" height="20">
+							<path fill="currentColor" d="M19 3A2 2 0 0 1 21 5V19a2 2 0 0 1-2 
+							2H5a2 2 0 0 1-2-2V5a2 2 0 0 
+							1 2-2h14zm-9 14v-7H7v7h3zm-1.5-8.3a1.7 
+							1.7 0 1 0 0-3.4 1.7 1.7 0 0 
+							0 0 3.4zM17 17v-4c0-2.2-1.2-3.3-2.8-3.3-1.3 
+							0-1.8.7-2.1 1.2V10h-3v7h3v-3.5c0-.9.2-1.8 
+							1.3-1.8 1.1 0 1.1 1 1.1 1.9V17h2.5z"/>
+						</svg>
+					</a>
+				</div>
+
+			</div>
+		</div>
+
+        <!-- RIGHT SIDE -->
+        <div class="team-cta">
+            <h3>Let's make electrochemical production scalable.</h3>
+
+            <a class="btn btn-primary" href="contact.html">
+                Start a conversation
+            </a>
+
+            <a class="lk" href="technology.html">
+                Learn more about our technology →
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+<section class="partners">
+  <div class="subtitle">OUR PARTNER</div>
+
+  <div class="partners-slider">
+    <div class="partners-track">
+
+      <!-- Repeat logos -->
+      <div class="partner-card"><img src="assets/partners/ydelft.png" alt="Y!Delft" /></div>
+      <div class="partner-card"><img src="assets/partners/hightechxl.png" alt="HighTechXL" /></div>
+	  <div class="partner-card"><img src="assets/partners/tudelft.png" alt="TuDelft" /></div>
+	  <div class="partner-card"><img src="assets/partners/tno.png" alt="Tno" /></div>
+	  <div class="partner-card"><img src="assets/partners/agropolychim.jpg" alt="Agropolychim" /></div>
+	  <div class="partner-card"><img src="assets/partners/rabo.png" alt="Rabo" /></div>
+	  <div class="partner-card"><img src="assets/partners/gemeenterott.jpg" alt="GemeenteRott" /></div>
+
+      <!-- DUPLICATE (important for infinite scroll!) -->
+      <div class="partner-card"><img src="assets/partners/ydelft.png" alt="Y!Delft" /></div>
+      <div class="partner-card"><img src="assets/partners/hightechxl.png" alt="HighTechXL" /></div>
+	  <div class="partner-card"><img src="assets/partners/tudelft.png" alt="TuDelft" /></div>
+	  <div class="partner-card"><img src="assets/partners/tno.png" alt="Tno" /></div>
+	  <div class="partner-card"><img src="assets/partners/agropolychim.jpg" alt="Agropolychim" /></div>
+	  <div class="partner-card"><img src="assets/partners/rabo.png" alt="Rabo" /></div>
+	  <div class="partner-card"><img src="assets/partners/gemeenterott.jpg" alt="GemeenteRott" /></div>
+
+    </div>
+  </div>
+  
+</section>
+
+
+
+<script>
+window.addEventListener("scroll", function () {
+  const section = document.getElementById("next-section");
+  if (!section) return;
+
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  let progress = 0;
+  if (rect.top < windowHeight) {
+    progress = (windowHeight - rect.top) / windowHeight;
+  }
+
+  const move = Math.min(progress * 80, 80);
+  section.style.transform = `translateY(${-move}px)`;
+});
+	/* =========================================================
+       SVG: ALL DRAWING VALUES DEFINED AS VARIABLES (CONFIG OBJECT)
+       ========================================================= */
+    const CONFIG = {
+      svg: {
+        viewBox: { x: 50, y: 0, w: 740, h: 600 }
+      },
+	  
+
+      visuals: {
+        inputColor:  "#2DD4FF",
+        output1Color:"#34D399",
+        output2Color:"#D4AF37",
+        textColor:   "#ffffff",
+
+        textSizePx:  11,
+        letterSpacingPx: 0.5,
+
+        glowBlurPx:  6,
+        glowOpacity: 0.08,
+        softGlowStdDev: 3
+      },
+
+      anim: {
+        flowDurationS: 2.5,
+        pulseDurationS: 2.2
+      },
+
+      
+	  centerImage: {
+	    href: "assets/cube.png",
+	    cx: 350,   // middle of the diagram (between arrows)
+	    cy: 320,
+	    width: 500
+	  },
+
+
+      nodes: {
+        rRing: 20,
+        rCore: 14,
+        rGlow: 10
+      },
+
+      renewablePower: {
+        node: { cx: 100, cy: 260 },
+        iconPathD: "M 97 252 L 100 262 L 103 256 L 106 268",
+        text: [
+          { str: "RENEWABLE", x: 115, y: 232 },
+          { str: "POWER",     x: 115, y: 248 }
+        ],
+        linePathD: "M 120 270 L 200 290",
+        particleR: 2
+      },
+
+      waterInput: {
+        node: { cx: 100, cy: 380 },
+        iconPathD: "M 100 366 C 92 376, 92 388, 100 392 C 108 388, 108 376, 100 366 Z",
+        text: [
+          { str: "WATER", x: 115, y: 394 },
+          { str: "INPUT", x: 115, y: 410 }
+        ],
+        linePathD: "M 124 372 L 200 360",
+        particleR: 2
+      },
+
+      hydrogen: {
+        node: { cx: 640, cy: 260 },
+        symbol: { str: "H",  x: 640, y: 258 },
+        sub:    { str: "2",  x: 648, y: 266, fontSize: 7 },
+        text: [
+          { str: "GREEN",    x: 565, y: 232 },
+          { str: "HYDROGEN", x: 565, y: 248 }
+        ],
+        linePathD: "M 540 280 L 625 260",
+        pulse: { r0: 20, r1: 34 } // used by JS animation hook (see below)
+      },
+
+      chemicals: {
+        node: { cx: 640, cy: 380 },
+        iconPathD: "M 634 366 L 634 374 L 628 388 L 652 388 L 646 374 L 646 366 Z",
+        text: [
+          { str: "GREEN",     x: 565, y: 394 },
+          { str: "CHEMICALS", x: 565, y: 410 }
+        ],
+        linePathD: "M 540 360 L 625 378",
+        pulse: { r0: 20, r1: 34 }
+      }
+    };
+
+    /* -----------------------------
+       APPLY VARIABLES TO DOM
+       ----------------------------- */
+    const $ = (id) => document.getElementById(id);
+	function applyRenewable() {
+	  const n = CONFIG.renewablePower.node;
+	  const r = CONFIG.nodes;
+	  const img = getImageBounds();
+
+	  setCircle("rpRing", n.cx, n.cy, r.rRing);
+	  setCircle("rpCore", n.cx, n.cy, r.rCore);
+	  setCircle("rpGlow", n.cx, n.cy, r.rGlow);
+
+	  setPathD("rpIcon", CONFIG.renewablePower.iconPathD);
+
+	  const t = CONFIG.renewablePower.text;
+	  setText("rpText1", t[0].str, t[0].x, t[0].y);
+	  setText("rpText2", t[1].str, t[1].x, t[1].y);
+
+	  // 🔥 dynamic arrow to image
+	  const d = `M ${n.cx + 20} ${n.cy} L ${img.left - 10} ${n.cy + 20}`;
+	  setPathD("rpLine", d);
+
+	  setAttr("rpParticle", "r", CONFIG.renewablePower.particleR);
+	  setMotionPath("rpParticle", d);
+	}
+	function getImageBounds() {
+	  const img = CONFIG.centerImage;
+	  const size = img.width;
+
+	  return {
+		left:   img.cx - size / 2,
+		right:  img.cx + size / 2,
+		top:    img.cy - size / 2,
+		bottom: img.cy + size / 2,
+		cx: img.cx,
+		cy: img.cy
+	  };
+	}
+
+    function setAttr(id, attr, value) {
+      const el = $(id);
+      if (!el) return;
+      el.setAttribute(attr, value);
+    }
+
+    function setText(id, str, x, y) {
+      const el = $(id);
+      if (!el) return;
+      el.textContent = str;
+      if (x != null) el.setAttribute("x", x);
+      if (y != null) el.setAttribute("y", y);
+    }
+
+    function setCircle(id, cx, cy, r) {
+      setAttr(id, "cx", cx);
+      setAttr(id, "cy", cy);
+      setAttr(id, "r",  r);
+    }
+
+    function setPathD(id, d) {
+      setAttr(id, "d", d);
+    }
+
+    function setMotionPath(circleId, pathD) {
+      const el = $(circleId);
+      if (!el) return;
+      // CSS Motion Path uses offset-path: path("...")
+      el.style.offsetPath = `path("${pathD}")`;
+      el.style.offsetDistance = "0%";
+    }
+
+    function applyRootVars() {
+      const r = document.documentElement;
+
+      // SVG viewBox
+      const vb = CONFIG.svg.viewBox;
+      $("svgRoot").setAttribute("viewBox", `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+
+      // Theme colors
+      r.style.setProperty("--inputColor", CONFIG.visuals.inputColor);
+      r.style.setProperty("--output1Color", CONFIG.visuals.output1Color);
+      r.style.setProperty("--output2Color", CONFIG.visuals.output2Color);
+      r.style.setProperty("--text", CONFIG.visuals.textColor);
+
+      // Text style
+      r.style.setProperty("--textSize", `${CONFIG.visuals.textSizePx}px`);
+      r.style.setProperty("--letterSpacing", `${CONFIG.visuals.letterSpacingPx}px`);
+
+      // Glow
+      r.style.setProperty("--glowBlurPx", `${CONFIG.visuals.glowBlurPx}px`);
+      r.style.setProperty("--glowOpacity", `${CONFIG.visuals.glowOpacity}`);
+      setAttr("softGlowBlur", "stdDeviation", CONFIG.visuals.softGlowStdDev);
+
+      // Animations
+      r.style.setProperty("--flowDur", `${CONFIG.anim.flowDurationS}s`);
+      r.style.setProperty("--pulseDur", `${CONFIG.anim.pulseDurationS}s`);
+    }
+
+    function applyCenterImage() {
+	  const img = CONFIG.centerImage;
+	  const el = $("centerImg");
+
+	  if (!el) return;
+
+	  el.setAttribute("href", img.href);
+
+	  const size = img.width;
+
+	  el.setAttribute("x", img.cx - size / 2);
+	  el.setAttribute("y", img.cy - size / 2);
+	  el.setAttribute("width", size);
+	  el.setAttribute("height", size);
+	}
+
+
+    function applyRenewable() {
+      const n = CONFIG.renewablePower.node;
+      const r = CONFIG.nodes;
+
+      setCircle("rpRing", n.cx, n.cy, r.rRing);
+      setCircle("rpCore", n.cx, n.cy, r.rCore);
+      setCircle("rpGlow", n.cx, n.cy, r.rGlow);
+
+      setPathD("rpIcon", CONFIG.renewablePower.iconPathD);
+
+      const t = CONFIG.renewablePower.text;
+      setText("rpText1", t[0].str, t[0].x, t[0].y);
+      setText("rpText2", t[1].str, t[1].x, t[1].y);
+
+      setPathD("rpLine", CONFIG.renewablePower.linePathD);
+      setAttr("rpParticle", "r", CONFIG.renewablePower.particleR);
+      setMotionPath("rpParticle", CONFIG.renewablePower.linePathD);
+    }
+
+    function applyWater() {
+      const n = CONFIG.waterInput.node;
+      const r = CONFIG.nodes;
+
+      setCircle("wRing", n.cx, n.cy, r.rRing);
+      setCircle("wCore", n.cx, n.cy, r.rCore);
+      setCircle("wGlow", n.cx, n.cy, r.rGlow);
+
+      setPathD("wIcon", CONFIG.waterInput.iconPathD);
+
+      const t = CONFIG.waterInput.text;
+      setText("wText1", t[0].str, t[0].x, t[0].y);
+      setText("wText2", t[1].str, t[1].x, t[1].y);
+
+      setPathD("wLine", CONFIG.waterInput.linePathD);
+      setAttr("wParticle", "r", CONFIG.waterInput.particleR);
+      setMotionPath("wParticle", CONFIG.waterInput.linePathD);
+    }
+
+    function applyHydrogen() {
+      const n = CONFIG.hydrogen.node;
+      const r = CONFIG.nodes;
+
+      setCircle("hRing", n.cx, n.cy, r.rRing);
+      setCircle("hCore", n.cx, n.cy, r.rCore);
+      setCircle("hGlow", n.cx, n.cy, r.rGlow);
+
+      setText("hSymbol", CONFIG.hydrogen.symbol.str, CONFIG.hydrogen.symbol.x, CONFIG.hydrogen.symbol.y);
+      setText("hSub", CONFIG.hydrogen.sub.str, CONFIG.hydrogen.sub.x, CONFIG.hydrogen.sub.y);
+      setAttr("hSub", "font-size", CONFIG.hydrogen.sub.fontSize);
+
+      const t = CONFIG.hydrogen.text;
+      setText("hText1", t[0].str, t[0].x, t[0].y);
+      setText("hText2", t[1].str, t[1].x, t[1].y);
+
+      setPathD("hLine", CONFIG.hydrogen.linePathD);
+
+      // pulse ring base circle (animated via CSS opacity)
+      setCircle("hPulse", n.cx, n.cy, CONFIG.hydrogen.pulse.r0);
+
+      // Optional: animate r using WAAPI for “true expanding ring”
+      // (keeps CSS fallback working if WAAPI not supported)
+      animatePulseRadius("hPulse", CONFIG.hydrogen.pulse.r0, CONFIG.hydrogen.pulse.r1, CONFIG.anim.pulseDurationS * 1000);
+    }
+
+    function applyChemicals() {
+      const n = CONFIG.chemicals.node;
+      const r = CONFIG.nodes;
+
+      setCircle("cRing", n.cx, n.cy, r.rRing);
+      setCircle("cCore", n.cx, n.cy, r.rCore);
+      setCircle("cGlow", n.cx, n.cy, r.rGlow);
+
+      setPathD("cIcon", CONFIG.chemicals.iconPathD);
+
+      const t = CONFIG.chemicals.text;
+      setText("cText1", t[0].str, t[0].x, t[0].y);
+      setText("cText2", t[1].str, t[1].x, t[1].y);
+
+      setPathD("cLine", CONFIG.chemicals.linePathD);
+
+      setCircle("cPulse", n.cx, n.cy, CONFIG.chemicals.pulse.r0);
+      animatePulseRadius("cPulse", CONFIG.chemicals.pulse.r0, CONFIG.chemicals.pulse.r1, CONFIG.anim.pulseDurationS * 1000, 1000);
+    }
+
+    function animatePulseRadius(id, r0, r1, durationMs, delayMs = 0) {
+      const el = $(id);
+      if (!el) return;
+
+      // Respect reduced motion
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      // WAAPI: animate radius for a “real” expanding ring
+      if (el.animate) {
+        el.animate(
+          [
+            { r: r0, opacity: 0.5 },
+            { r: r1, opacity: 0.0 }
+          ],
+          { duration: durationMs, iterations: Infinity, easing: "cubic-bezier(.2,.6,.3,1)", delay: delayMs }
+        );
+      }
+    }
+
+    function init() {
+      applyRootVars();
+      applyCenterImage();
+      applyRenewable();
+      applyWater();
+      applyHydrogen();
+      applyChemicals();
+    }
+
+    init();
+	
+	
+	
+</script>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      © 2025 FlowVolta B.V. All rights reserved.
+    </div>
+   
+	<div class="footer-right">
+	  <a href="index.html">Privacy Policy</a>
+	  <a href="index.html">Terms of Use</a>
+	</div>
+  </div>
+</footer>
+</body>
+</html>
