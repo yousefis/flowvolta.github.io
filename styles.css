@@ -6,11 +6,7 @@
     font-family: "Segoe UI", sans-serif;
 }
 
-body {
-    background: #1e293b;
-    color: #ffffff;
-    overflow-x: hidden;
-}
+
 
 /* ===== HEADER ===== */
 header {
@@ -247,9 +243,17 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: radial-gradient(circle at top, #0b1f3a, #050c18);
     color: white;
+	
 }
-
-/* TOP TEXT */
+/*body {
+    background: #1e293b;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+ body {
+    overflow-x: hidden;
+  }
+ TOP TEXT */
 .subtitle {
     color: #27c1e6;
     letter-spacing: 3px;
@@ -389,6 +393,7 @@ body {
 }
 html {
     scroll-behavior: smooth;
+	 scroll-padding-top: 80px;
 }
 
 /* wrapper handles position + animation */
@@ -1580,10 +1585,7 @@ opacity:0.8;
 /* ============================= */
 @media (max-width: 768px) {
 
-  body {
-    overflow-x: hidden;
-  }
-
+ 
   /* HEADER */
   header {
     flex-direction: column;
